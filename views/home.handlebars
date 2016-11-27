@@ -1,7 +1,7 @@
 
 <div class="container">
 <h1>Home Page</h1>
-  <form>
+{{!--   <form>
     <fieldset class="form-group row">
       <legend class="col-form-legend">Gender</legend>
        <div class="form-group row">
@@ -32,4 +32,92 @@
       </div>
     </div>
   </form>
+  <form class="form-horizontal">
+<fieldset> --}}
+
+<!-- Form Name -->
+<legend>Character Name Generator</legend>
+
+<div class="row">
+	<!-- Multiple Checkboxes -->
+	<div class="form-group col-md-4 offset-md-4">
+	  <label class="control-label" for="checkboxes">Gender</label>
+	  <div class="">
+	  <div class="checkbox">
+	    <label for="checkboxes-0">
+	      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+	      Male
+	    </label>
+		</div>
+	  <div class="checkbox">
+	    <label for="checkboxes-1">
+	      <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+	      Female
+	    </label>
+		</div>
+	  </div>
+
+	</div>
+
+	<!-- Multiple Radios -->
+	<div class="form-group col-med-4">
+	  <label class="control-label" for="radios">Type</label>
+	  <div class="">
+		  <div class="radio">
+		    <label for="radios-0">
+		      <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+		      First Name
+		    </label>
+			</div>
+		  <div class="radio">
+		    <label for="radios-1">
+		      <input type="radio" name="radios" id="radios-1" value="2">
+		      Last Name
+		    </label>
+			</div>
+	  </div>
+	</div>
+
+</div>
+
+<!-- Multiple Checkboxes -->
+<div class="form-group">
+  <label class="control-label" for="checkboxes">Culture</label>
+  <div class="">
+	  <div class="checkbox">
+	    <label for="checkboxes-0">
+	      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+	      Norse
+	    </label>
+		</div>
+	  <div class="checkbox">
+	    <label for="checkboxes-1">
+	      <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+	      Turkish
+	    </label>
+		</div>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group row">
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Generate</button>
+  </div>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Mix it Up</button>
+  </div>
+</div>
+
+<!-- File Button --> 
+<div class="form-group row">
+  <label class="col-md-4 control-label" for="filebutton">Add Names From CSV</label>
+  <div class="col-md-4">
+    <input id="filebutton" name="filebutton" class="input-file" type="file">
+  </div>
+</div>
+
+</fieldset>
+</form>
+
 </div>
