@@ -7,7 +7,11 @@ router.get('/', function (req, res) {
 });
 
 router.get('/home', function (req, res) {
-        res.render('home');
+	var data = models.Name.findAll().then(function(data) {
+		var hbsObject = { Name: data };
+		console.log(hbsObject);
+		res.render('home', hbsObject);
+	});
 });
 
 module.exports = router;

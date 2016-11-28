@@ -12,13 +12,13 @@
 				  <label class="control-label" for="checkboxes">Gender</label>
 				  <div class="checkbox">
 				    <label for="checkboxes-0">
-				      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
+				      <input type="checkbox" name="checkboxes" id="maleSelect" value="1">
 				      Male
 				    </label>
 					</div>
 				  <div class="checkbox">
 				    <label for="checkboxes-1">
-				      <input type="checkbox" name="checkboxes" id="checkboxes-1" value="2">
+				      <input type="checkbox" name="checkboxes" id="femaleSelect" value="2">
 				      Female
 				    </label>
 					</div>
@@ -29,13 +29,13 @@
 				  <label class="control-label" for="radios">Type</label>
 				  <div class="radio">
 				    <label for="radios-0">
-				      <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+				      <input type="radio" name="radios" id="firstNameSelect" value="1" checked="checked">
 				      First Name
 				    </label>
 					</div>
 				  <div class="radio">
 				    <label for="radios-1">
-				      <input type="radio" name="radios" id="radios-1" value="2">
+				      <input type="radio" name="radios" id="lastNameSelect" value="2">
 				      Last Name
 				    </label>
 					</div>
@@ -46,13 +46,13 @@
 				  <label class="control-label" for="checkboxes">Culture</label>
 				  <div class="checkbox">
 				    <label for="checkboxes-2">
-				      <input type="checkbox" name="checkboxes" id="checkboxes-2" value="1">
+				      <input type="checkbox" name="checkboxes" id="norseSelect" value="1">
 				      Norse
 				    </label>
 					</div>
 				  <div class="checkbox">
 				    <label for="checkboxes-3">
-				      <input type="checkbox" name="checkboxes" id="checkboxes-3" value="2">
+				      <input type="checkbox" name="checkboxes" id="turkishSelect" value="2">
 				      Turkish
 				    </label>
 					</div>
@@ -134,11 +134,13 @@
 			<th>Last Name</th>
 			<th>Name Builder</th>
 		</tr>
-		<tr>
-			<td>Test</td>
-			<td>Test</td>
-			<td>Test</td>
-		</tr>
+		{{#each Name}}
+			<tr>
+				<td>{{this.entry}}</td>
+				<td>{{this.gender}}</td>
+				<td>Test</td>
+			</tr>
+		{{/each}}
 	</table>
 
 

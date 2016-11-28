@@ -62,6 +62,7 @@ sequelizeConnection.query('SET FOREIGN_KEY_CHECKS = 0')
 	});
 });
 
+
 // listen on port 9001
 app.listen(PORT, function(){
 	console.log("Listening on PORT " + PORT )
