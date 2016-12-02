@@ -34,6 +34,7 @@
     "express-session": "^1.14.2",
     "handlebars": "^4.0.6",
     "method-override": "^2.3.7",
+    "mongojs": "^2.4.0",
     "mysql": "^2.12.0",
     "sequelize": "^3.27.0"
   }

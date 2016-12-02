@@ -9,9 +9,19 @@ var session = require('express-session');
 var methodOverride = require('method-override');
 var models  = require('./models');
 var sequelizeConnection = models.sequelize;
+var mongojs = require('mongojs');
+
+//Mongo Database Configuration
+var databaseUrl = 'names';
+var collections = ['firstNames', 'lastNames', 'placeNames'];
+
+var db = mongojs(databaseUrl, collections);
+
+db.on('error', function(error) {
+	console.log('Database Error:', error);
+});
 
 // Sets up the Express app to handle data parsing
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
@@ -24,15 +34,14 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 
-//Handlebars
-//========
+//Handlebars Config
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
 	defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
 
-//for serving front-end static content 
+//For serving front-end static content 
 app.use(express.static(path.join(__dirname, 'public')));
 
 //ROUTES
