@@ -24,3 +24,13 @@ function findFemaleNames () {
 	});
 };
 
+
+//IN PROCESS
+//ROUTES
+var queryURL = "/search";
+$.ajax({url: queryURL, method: 'GET'})
+				.done(function(data){
+					for (var i=0; i<data.length; i++) {
+
+					};
+				});
