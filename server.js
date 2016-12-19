@@ -10,15 +10,21 @@ var methodOverride = require('method-override');
 var models  = require('./models');
 var sequelizeConnection = models.sequelize;
 var mongojs = require('mongojs');
+var mongoose = require('mongoose');
 
 //Mongo Database Configuration
-var databaseUrl = 'names';
-var collections = ['firstNames', 'lastNames', 'placeNames'];
+// var databaseUrl = 'names';
+// var collections = ['firstNames', 'lastNames', 'placeNames'];
 
-var db = mongojs(databaseUrl, collections);
+// var db = mongojs(databaseUrl, collections);
+mongoose.connect("mongodb://localhost/names");
+var db = mongoose.connection;
 
 db.on('error', function(error) {
 	console.log('Database Error:', error);
+});
+db.once("open", function() {
+	console.log("Mongoose connection successful.")
 });
 
 // Sets up the Express app to handle data parsing
