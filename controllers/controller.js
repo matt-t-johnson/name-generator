@@ -23,7 +23,7 @@ router.get('/search/:gender', function (req, res) {
 		// .where('origin').equals(req.params.origin)
 		// .where('nameType').equals(req.params.nameType)
 		.limit(10)
-		.exec(callback)
+		// .exec(callback)
 	.then(function(data) {
 		var hbsObject = { Name: data };
 		console.log(hbsObject);
