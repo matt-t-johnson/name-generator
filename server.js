@@ -8,15 +8,11 @@ var bodyParser = require('body-parser');
 var session = require('express-session'); 
 var methodOverride = require('method-override');
 var models  = require('./models');
-var sequelizeConnection = models.sequelize;
+// var sequelizeConnection = models.sequelize;
 var mongojs = require('mongojs');
 var mongoose = require('mongoose');
 
-//Mongo Database Configuration
-// var databaseUrl = 'names';
-// var collections = ['firstNames', 'lastNames', 'placeNames'];
-
-// var db = mongojs(databaseUrl, collections);
+//MONGOOSE CONNECTION
 mongoose.connect("mongodb://localhost/names");
 var db = mongoose.connection;
 
@@ -55,27 +51,27 @@ var routes = require('./controllers/controller.js');
 app.use('/', routes);
 
 //SEQUELIZE
-sequelizeConnection.authenticate()
-	.then(function(err) {
-		console.log('Connected to MySQL database.');
-	})
-	.catch(function (err) {
-		console.log('Unable to connect to the database:', err);
-	});
+// sequelizeConnection.authenticate()
+// 	.then(function(err) {
+// 		console.log('Connected to MySQL database.');
+// 	})
+// 	.catch(function (err) {
+// 		console.log('Unable to connect to the database:', err);
+// 	});
 
-sequelizeConnection.query('SET FOREIGN_KEY_CHECKS = 0')
-.then(function() {
-	return sequelizeConnection.sync({force:true})
-})
-.then(function() {
-	return models.Name.create({
-		entry: 'Adalet',
-		gender: 'Female',
-		origin: 'Turkish',
-		meaning: 'Justice',
-		nameType: 'First Name'
-	});
-});
+// sequelizeConnection.query('SET FOREIGN_KEY_CHECKS = 0')
+// .then(function() {
+// 	return sequelizeConnection.sync({force:true})
+// })
+// .then(function() {
+// 	return models.Name.create({
+// 		entry: 'Adalet',
+// 		gender: 'Female',
+// 		origin: 'Turkish',
+// 		meaning: 'Justice',
+// 		nameType: 'First Name'
+// 	});
+// });
 
 
 // listen on port 9001
