@@ -9,7 +9,7 @@ var React = require('react');
 var Header = React.createClass({
 	render: function() {
 		return (
-			<nav className="navbar navbar-default">
+			<nav className="navbar navbar-default navbar-fixed-top">
 			  <div className="container">
 			    <div className="navbar-header">
 			      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -43,16 +43,3 @@ var Header = React.createClass({
 });
 
 module.exports = Header;
-
-// <nav className="navbar navbar-dark bg-inverse">
-// 			  <div className="container">
-// 			  		<div className="nav navbar-nav">
-// 			  			Character Name Generator
-// 			  		</div>
-// 				    <ul className="nav navbar-nav navbar-right">
-// 				    	<li className="nav-item">Projects</li>
-// 				    	<li className="nav-item">Log In</li>
-// 				    	<li>Sign Up</li>
-// 				    </ul>
-// 				 </div>
-// 			</nav>

@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 var mongoose = require('mongoose');
-// var Names = require('../models/Names');
+// Mongoose mpromise deprecated - use bluebird promises
+var Promise = require("bluebird");
+mongoose.Promise = Promise;
 
 //FUNCTIONS
 function shuffle(array) {
@@ -24,16 +26,31 @@ router.get('/', function (req, res) {
 });
 
 //MONGOOSE VERSION
-// router.get('/search', function(req, res) {
-// 	Names.find({}).exec(function(err, doc) {
-// 		if (err) {
-// 			console.log(err);
-// 		}
-// 		else {
-// 			res.send(doc);
-// 		}
-// 	});
-// });
+router.get('/search', function(req, res) {
+	models.Names.find({}).exec(function(err, doc) {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			res.send(doc);
+		}
+	});
+});
+
+router.get('/firstnames', function(req, res) {
+	models.Names.find()
+		.select('entry')
+		.where('nameType', 'First Name')
+		.exec(function(err, doc) {
+			if (err) {
+				console.log(err);
+			}
+			else {
+				res.send(doc);
+			}
+	});
+});
+
 
 router.get('/home', function(req, res) {
 	res.render('home');

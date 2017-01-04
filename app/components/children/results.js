@@ -1,18 +1,22 @@
 var React = require('react');
 
-//TO DO: Edit "names" in line 13
 var Results = React.createClass({
 	render: function() {
 		return (
-			<div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title text-center">Results</h3>
-        </div>
-        <div className="panel-body text-center">
-          <h1>Names:</h1>
-          <p>{this.props.names}</p>
-        </div>
-    	</div>
+					<div className="col-md-3">
+						<div className="panel panel-primary">
+						  <div className="panel-heading">First Names</div>
+						  <div className="panel-body">
+						    <ul className="list-group">
+							    <li className="list-group-item">Cras justo odio</li>
+							    <li className="list-group-item">Dapibus ac facilisis in</li>
+							    <li className="list-group-item">Morbi leo risus</li>
+							    <li className="list-group-item">Porta ac consectetur ac</li>
+							    <li className="list-group-item">Vestibulum at eros</li>
+							  </ul>
+						  </div>
+						</div>
+					</div>
 		);
 	}
 });
