@@ -15,9 +15,8 @@ var helpers = {
     }
 
     return axios.get(queryURL, requestConfig).then(function(response) {
-
-      console.log("Axios response: ", response);
-      return response.data.results[0].formatted;
+      return response.data;
+      // return Array.from(response.data);
     });
   }
 };

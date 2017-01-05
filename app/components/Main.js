@@ -15,7 +15,9 @@ var Main = React.createClass({
 			firstNameSelect: false,
 			lastNameSelect: false,
 			norseSelect: false,
-			turkishSelect: false
+			turkishSelect: false,
+			results: [],
+			showResultsComponent: false,
 		};
 	},
 	setParameters: function(params) {
@@ -25,16 +27,34 @@ var Main = React.createClass({
   componentDidUpdate: function() {
     // Run the query for the address
     helpers.runQuery(this.state).then(function(data) {
+    	var resultArray = [];
+    	for (var i = 0; i < data.length; i++) {
+				resultArray.push(data[i].entry);
+				console.log("resultArray[i]= ", resultArray[i]);
+			}
   		console.log("Data: ", data);
+  		this.setState({results: resultArray})
     }.bind(this));
   },
+  shuffleResults: function(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+	  while (0 !== currentIndex) {
+	    randomIndex = Math.floor(Math.random() * currentIndex);
+	    currentIndex -= 1;
+
+	    temporaryValue = array[currentIndex];
+	    array[currentIndex] = array[randomIndex];
+	    array[randomIndex] = temporaryValue;
+	  }
+	  return array;
+	},
 	render: function() {
 		return (
 			<div>
 				<Header />
 				<div className="container">
 					<Query setParameters={this.setParameters}/>
-					<Results />
+					<Results nameResults={this.state.results}/>
 					<Results />
 					<NameBuilder />
 				</div>

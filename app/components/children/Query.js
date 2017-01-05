@@ -12,7 +12,9 @@ var Query = React.createClass({
 			firstNameSelect: false,
 			lastNameSelect: false,
 			norseSelect: false,
-			turkishSelect: false
+			turkishSelect: false,
+			resultsArray: [],
+			showResultsComponent: false,
 		};
 	},
 	getDefaultProps: function() {
@@ -29,6 +31,7 @@ var Query = React.createClass({
 	handleSubmit: function(event) {
 		alert('A query was submitted: ' + this.state);
 		this.props.setParameters(this.state);
+		this.setState({showResultsComponent: true});
     event.preventDefault();
 	},
 
@@ -38,7 +41,7 @@ var Query = React.createClass({
 				<div className="panel panel-primary">
 						<div className="panel-heading">Name Parameters</div>
 						<div className="panel-body">
-							<div className="row">
+							<form className="row" onSubmit={this.handleSubmit}>
 								<div className="form-group col-md-2">
 								  <label className="control-label" htmlFor="checkboxes">Gender</label>
 								  <div className="checkbox">
@@ -127,6 +130,7 @@ var Query = React.createClass({
 									<div className="row">
 										<div className="">
 								   		<button 
+								   			type="submit"
 								   			id="genButton" 
 								   			name="genButton" 
 								   			className="btn btn-primary"
@@ -135,12 +139,9 @@ var Query = React.createClass({
 								   		Generate</button>
 								   	</div>
 								  </div>
-								  <div className="row">
-								    <button id="ranButton" name="ranButton" className="btn btn-danger">Random</button>
-								  </div>
 								</div>
 
-							</div> 
+							</form> 
 
 						</div>
 					</div> 
