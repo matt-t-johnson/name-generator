@@ -25,16 +25,7 @@ var Main = React.createClass({
 	},
 	// If the component changes (i.e. if a search is entered)...
   componentDidUpdate: function() {
-    // Run the query for the address
-    helpers.runQuery(this.state).then(function(data) {
-    	var resultArray = [];
-    	for (var i = 0; i < data.length; i++) {
-				resultArray.push(data[i].entry);
-				console.log("resultArray[i]= ", resultArray[i]);
-			}
-  		console.log("Data: ", data);
-  		this.setState({results: resultArray})
-    }.bind(this));
+   
   },
   shuffleResults: function(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
