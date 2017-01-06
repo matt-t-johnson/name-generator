@@ -17,7 +17,7 @@ var Main = React.createClass({
 			norseSelect: false,
 			turkishSelect: false,
 			results: [],
-			showResultsComponent: false,
+			// showResultsComponent: false,
 		};
 	},
 	setParameters: function(params) {
@@ -45,8 +45,9 @@ var Main = React.createClass({
 				<Header />
 				<div className="container">
 					<Query setParameters={this.setParameters}/>
-					<Results nameResults={this.state.results}/>
-					<Results />
+					{this.state.showResultsComponent && 
+						<Results nameResults={this.state.results}/>
+					}
 					<NameBuilder />
 				</div>
 			</div>

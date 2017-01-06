@@ -8,11 +8,11 @@ var Results = React.createClass({
 						  <div className="panel-heading">First Names</div>
 						  <div className="panel-body">
 						    <ul className="list-group">
-							    <li className="list-group-item">{this.props.nameResults}</li>
-							    <li className="list-group-item">{this.props.nameResults}</li>
-							    <li className="list-group-item">{this.props.nameResults}</li>
-							    <li className="list-group-item">Porta ac consectetur ac</li>
-							    <li className="list-group-item">Vestibulum at eros</li>
+							    <li className="list-group-item">{this.props.nameResults[0]}</li>
+							    <li className="list-group-item">{this.props.nameResults[1]}</li>
+							    <li className="list-group-item">{this.props.nameResults[2]}</li>
+							    <li className="list-group-item">{this.props.nameResults[3]}</li>
+							    <li className="list-group-item">{this.props.nameResults[4]}</li>
 							  </ul>
 						  </div>
 						</div>

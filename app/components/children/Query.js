@@ -40,9 +40,10 @@ var Query = React.createClass({
 
 	handleSubmit: function(event) {
 		alert('A query was submitted: ' + this.state);
+		this.setState({showResultsComponent: true});
+
 		this.props.setParameters(this.state);
 		console.log("State: ", this.state);
-		this.setState({showResultsComponent: true});
 		helpers.runQuery(this.state).then(function(data) {
     	var resultArray = [];
     	for (var i = 0; i < data.length; i++) {
