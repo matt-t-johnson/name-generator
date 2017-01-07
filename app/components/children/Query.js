@@ -1,9 +1,6 @@
 var React = require('react');
 var helpers = require("../utils/helpers");
-
-//CHILDREN COMPONENTS
-// var Results = require('./children/Results');
-
+var resultArray = [];
 
 var Query = React.createClass({
 	getInitialState: function() {
@@ -14,44 +11,45 @@ var Query = React.createClass({
 			lastNameSelect: false,
 			norseSelect: false,
 			turkishSelect: false,
-			resultsArray: [],
+			results: [],
 			showResultsComponent: false,
+			showNameBuilder: false
 		};
-	},
-	getDefaultProps: function() {
-		return {};
 	},
 
 	handleChange: function(event) {
 		var newState = {};
 
 		if (event.target.checked == false) {
-			// console.log("target false");
 			newState[event.target.id] = false;
 		}
 		else {
-			// console.log("target true");
 			newState[event.target.id] = true;
 		}
-		// console.log(event.target.id, event.target.value);
     this.setState(newState);
 		console.log("change handled");
 	},
 
 	handleSubmit: function(event) {
-		alert('A query was submitted: ' + this.state);
-		this.setState({showResultsComponent: true});
-
+		// this.setState({ 
+		// 	showResultsComponent: true, 
+		// 	showNameBuilder: true 
+		// 	}, function() {
+		// 		this.props.setParameters(this.state);
+		// });
 		this.props.setParameters(this.state);
 		console.log("State: ", this.state);
 		helpers.runQuery(this.state).then(function(data) {
-    	var resultArray = [];
     	for (var i = 0; i < data.length; i++) {
 				resultArray.push(data[i].entry);
 				console.log("resultArray[i]= ", resultArray[i]);
 			}
   		console.log("Data: ", data);
-  		this.setState({results: resultArray})
+  		this.setState({
+  			results: resultArray,
+  			showResultsComponent: true,
+  			showNameBuilder: true
+  		});
     }.bind(this));	
     event.preventDefault();
 	},

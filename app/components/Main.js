@@ -17,7 +17,8 @@ var Main = React.createClass({
 			norseSelect: false,
 			turkishSelect: false,
 			results: [],
-			// showResultsComponent: false,
+			showResultsComponent: false,
+			showNameBuilder: false
 		};
 	},
 	setParameters: function(params) {
@@ -25,7 +26,6 @@ var Main = React.createClass({
 	},
 	// If the component changes (i.e. if a search is entered)...
   componentDidUpdate: function() {
-   
   },
   shuffleResults: function(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -48,7 +48,9 @@ var Main = React.createClass({
 					{this.state.showResultsComponent && 
 						<Results nameResults={this.state.results}/>
 					}
-					<NameBuilder />
+					{this.state.showNameBuilder &&
+						<NameBuilder />
+					}
 				</div>
 			</div>
 		);

@@ -7,7 +7,7 @@ var helpers = {
 
   runQuery: function(parameters) {
 
-    console.log(parameters);
+    console.log("Parameters: ", parameters);
 
     var queryURL = "http://localhost:9001/search";
     var requestConfig = {
@@ -16,7 +16,6 @@ var helpers = {
 
     return axios.get(queryURL, requestConfig).then(function(response) {
       return response.data;
-      // return Array.from(response.data);
     });
   }
 };

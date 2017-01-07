@@ -1,6 +1,10 @@
 var React = require('react');
 
 var Results = React.createClass({
+	addToNameBuilder: function() {
+		
+	},
+	
 	render: function() {
 		return (
 					<div className="col-md-3">
