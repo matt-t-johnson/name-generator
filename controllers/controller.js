@@ -37,6 +37,38 @@ router.get('/firstnames', function(req, res) {
 	});
 });
 
+router.get('/search/male/first/norse', function(req, res) {
+	models.Names.find()
+		.select('entry')
+		.where('nameType', 'First Name')
+		.where('gender', 'Male')
+		.where('origin', 'Norse')
+		.exec(function(err, doc) {
+			if (err) {
+				console.log(err);
+			}
+			else {
+				res.send(doc);
+			}
+	});
+});
+
+router.get('/search/female/first/norse', function(req, res) {
+	models.Names.find()
+		.select('entry')
+		.where('nameType', 'First Name')
+		.where('gender', 'female')
+		.where('origin', 'Norse')
+		.exec(function(err, doc) {
+			if (err) {
+				console.log(err);
+			}
+			else {
+				res.send(doc);
+			}
+	});
+});
+
 
 router.get('/home', function(req, res) {
 	res.render('home');

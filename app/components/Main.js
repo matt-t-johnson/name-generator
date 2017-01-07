@@ -4,7 +4,8 @@ var helpers = require("./utils/helpers");
 //CHILDREN COMPONENTS
 var Header = require('./children/Header');
 var Query = require('./children/Query');
-var Results = require('./children/Results');
+var FirstNameResults = require('./children/FirstNameResults');
+var LastNameResults = require('./children/LastNameResults');
 var NameBuilder = require('./children/NameBuilder');
 
 var Main = React.createClass({
@@ -17,12 +18,17 @@ var Main = React.createClass({
 			norseSelect: false,
 			turkishSelect: false,
 			results: [],
-			showResultsComponent: false,
+			showFirstNames: false,
+			showLastNames: false,
 			showNameBuilder: false
 		};
 	},
 	setParameters: function(params) {
 		this.setState(params);
+	},
+	shouldComponentUpdate: function() {
+		console.log("shouldComponentUpdate: Main");
+		return true;
 	},
 	// If the component changes (i.e. if a search is entered)...
   componentDidUpdate: function() {
@@ -44,12 +50,15 @@ var Main = React.createClass({
 			<div>
 				<Header />
 				<div className="container">
-					<Query setParameters={this.setParameters}/>
-					{this.state.showResultsComponent && 
-						<Results nameResults={this.state.results}/>
+					<Query 
+						setParameters={this.setParameters}
+						shuffleResults={this.shuffleResults}
+					/>
+					{this.state.showFirstNames && 
+						<FirstNameResults nameResults={this.state.results} mainState={this.state}/>
 					}
-					{this.state.showNameBuilder &&
-						<NameBuilder />
+					{this.state.showLastNames && 
+						<LastNameResults nameResults={this.state.results} mainState={this.state}/>
 					}
 				</div>
 			</div>

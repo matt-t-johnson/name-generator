@@ -31,25 +31,34 @@ var Query = React.createClass({
 	},
 
 	handleSubmit: function(event) {
-		// this.setState({ 
-		// 	showResultsComponent: true, 
-		// 	showNameBuilder: true 
-		// 	}, function() {
-		// 		this.props.setParameters(this.state);
-		// });
+		var shuffledArray = [];
+		var resultArray = [];
+
 		this.props.setParameters(this.state);
-		console.log("State: ", this.state);
+		console.log("Query State: ", this.state);
 		helpers.runQuery(this.state).then(function(data) {
     	for (var i = 0; i < data.length; i++) {
-				resultArray.push(data[i].entry);
-				console.log("resultArray[i]= ", resultArray[i]);
+    		if (data[i].nameType === "First Name") {
+    			resultArray.push(data[i].entry);
+					console.log("resultArray[i]= ", resultArray[i]);
+    		}
+    		else {console.log(data[i].entry + " is not a first name");}
 			}
-  		console.log("Data: ", data);
-  		this.setState({
-  			results: resultArray,
-  			showResultsComponent: true,
-  			showNameBuilder: true
-  		});
+			var shuffledArray = this.props.shuffleResults(resultArray);
+
+			console.log(shuffledArray);
+			console.log("Data: ", data);
+			console.log("Results State: ", this.state);
+
+			this.setState({
+				results: shuffledArray,
+				showFirstNames: this.state.firstNameSelect,
+				showLastNames: this.state.lastNameSelect,
+				showNameBuilder: true
+			});
+
+  		console.log("State after query: ", this.state);
+  		console.log(this.props);
     }.bind(this));	
     event.preventDefault();
 	},

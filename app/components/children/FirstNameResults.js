@@ -1,10 +1,24 @@
 var React = require('react');
+var helpers = require("../utils/helpers");
+var resultArray = [];
 
-var Results = React.createClass({
-	addToNameBuilder: function() {
-		
+
+var FirstNameResults = React.createClass({
+	getInitialState: function() {
+		return this.props.mainState;
 	},
-	
+	componentWillMount: function() {
+		console.log("componentWillMount: Results");
+		// this.setState(this.props.mainState);
+
+	},
+	shouldComponentUpdate: function() {
+		console.log("shouldComponentUpdate: Results");
+		return true;
+	},
+	componentWillUpdate: function() {
+		console.log("componentWillUpdate: Results");
+	},
 	render: function() {
 		return (
 					<div className="col-md-3">
@@ -22,7 +36,14 @@ var Results = React.createClass({
 						</div>
 					</div>
 		);
-	}
+	},
+	componentDidMount: function() {
+		console.log("componentDidMount: Results");
+
+	},
+	componentDidUpdate: function(prevProps, prevState) {
+		console.log("componentDidUpdate: Results");
+	},
 });
 
-module.exports = Results;
+module.exports = FirstNameResults;
