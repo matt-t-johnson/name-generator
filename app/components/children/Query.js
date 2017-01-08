@@ -70,7 +70,7 @@ var Query = React.createClass({
 						<div className="panel-heading">Name Parameters</div>
 						<div className="panel-body">
 							<form className="row" onSubmit={this.handleSubmit}>
-								<div className="form-group col-md-2">
+								<div className="form-group col-md-4 col-xs-4 col-sm-4">
 								  <label className="control-label" htmlFor="checkboxes">Gender</label>
 								  <div className="checkbox">
 								    <label htmlFor="checkboxes-0">
@@ -98,7 +98,7 @@ var Query = React.createClass({
 									</div>
 								</div>
 
-								<div className="form-group col-md-2">
+								<div className="form-group col-md-4 col-xs-4 col-sm-4">
 								  <label className="control-label" htmlFor="radios">Type</label>
 								  <div className="checkbox">
 								    <label htmlFor="checkboxes-0">
@@ -126,7 +126,7 @@ var Query = React.createClass({
 									</div>
 								</div>
 
-								<div className="form-group col-md-2">
+								<div className="form-group col-md-4 col-xs-4 col-sm-4">
 								  <label className="control-label" htmlFor="checkboxes">Culture</label>
 								  <div className="checkbox">
 								    <label htmlFor="checkboxes-2">
@@ -154,9 +154,10 @@ var Query = React.createClass({
 									</div>
 								</div>
 
-								<div className="container col-md-6">
+								<div className="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
 									<div className="row">
-										<div className="">
+										<div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+										<div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 								   		<button 
 								   			type="submit"
 								   			id="genButton" 
@@ -166,6 +167,7 @@ var Query = React.createClass({
 								   		>
 								   		Generate</button>
 								   	</div>
+								   	<div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
 								  </div>
 								</div>
 

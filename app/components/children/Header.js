@@ -1,15 +1,12 @@
 var React = require('react');
 
-//CHILDREN COMPONENTS
-// var Results = require('./children/Results');
 
-//Malfunctioning bit for inputs
-// value={this.state.value} onChange={this.handleChange}
+
 
 var Header = React.createClass({
 	render: function() {
 		return (
-			<nav className="navbar navbar-default navbar-fixed-top">
+			<nav className="navbar navbar-default navbar-fixed-top" id="header">
 			  <div className="container">
 			    <div className="navbar-header">
 			      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -18,13 +15,13 @@ var Header = React.createClass({
 			        <span className="icon-bar"></span>
 			        <span className="icon-bar"></span>
 			      </button>
-			      <a className="navbar-brand" href="#">Name Generator</a>
+			      <a id="nav-brand" className="navbar-brand" href="#">Name Generator</a>
 			    </div>
 
 			    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul className="nav navbar-nav navbar-right">
 			        <li className="dropdown">
-			          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span className="caret"></span></a>
+			          <a id="navButtons" href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span className="caret"></span></a>
 			          <ul className="dropdown-menu">
 			            <li><a href="#">Project 1</a></li>
 			            <li><a href="#">Project 2</a></li>
