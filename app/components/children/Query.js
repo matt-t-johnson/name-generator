@@ -48,7 +48,7 @@ var Query = React.createClass({
     		}
     		else {console.log(data[i].entry + " is not a first name");}
 			}
-			var shuffledArray = this.props.shuffleResults(resultArray);
+			var shuffledArray = this.shuffleResults(resultArray);
 
 			console.log(shuffledArray);
 			console.log("Query Data: ", data);
@@ -63,11 +63,21 @@ var Query = React.createClass({
 			});
 			this.props.setParameters(this.state);
   		console.log("State after query: ", this.state);
-  		console.log(this.props);
     }.bind(this));	
     event.preventDefault();
 	},
+	shuffleResults: function(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+	  while (0 !== currentIndex) {
+	    randomIndex = Math.floor(Math.random() * currentIndex);
+	    currentIndex -= 1;
 
+	    temporaryValue = array[currentIndex];
+	    array[currentIndex] = array[randomIndex];
+	    array[randomIndex] = temporaryValue;
+	  }
+	  return array;
+	},
 	render: function() {
 		return (
 			<div id="QueryBody">

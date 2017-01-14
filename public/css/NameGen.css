@@ -38,20 +38,29 @@
     border-color: #2c3642;
 }
 
-.btn-primary {
+.btn-primary:hover {
     color: #eeeeee;
     background-color: #8d8f9f;
     border-color: #8d8f9f;
 }
 
-.btn-primary:hover {
+.btn-primary {
     color: #eeeeee;
     background-color: #2c3642;
     border-color: #8d8f9f;
 }
 
 #genButton {
-	color: #eeeeee;
-  background-color: #2c3642;
-  border-color: #2c3642;
+    color: #eeeeee;
+    background-color: #2c3642;
+    border-color: #2c3642;
+}
+
+#nb-save-1, #nb-save-2 {
+    float: right;
+    margin-right: 5px;
+}
+
+#nb-discard-1, #nb-discard-2 {
+    float: right;
 }

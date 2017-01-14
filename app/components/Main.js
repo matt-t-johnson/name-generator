@@ -33,19 +33,6 @@ var Main = React.createClass({
 	// If the component changes (i.e. if a search is entered)...
   componentDidUpdate: function() {
   },
-  //Can move this to Query.js
-  shuffleResults: function(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-	  while (0 !== currentIndex) {
-	    randomIndex = Math.floor(Math.random() * currentIndex);
-	    currentIndex -= 1;
-
-	    temporaryValue = array[currentIndex];
-	    array[currentIndex] = array[randomIndex];
-	    array[randomIndex] = temporaryValue;
-	  }
-	  return array;
-	},
 	render: function() {
 		return (
 			<div>
@@ -53,8 +40,8 @@ var Main = React.createClass({
 				<div className="container">
 					<Query 
 						setParameters={this.setParameters}
-						shuffleResults={this.shuffleResults}
 					/>
+					<NameBuilder/>
 					{this.state.showFirstNames && 
 						<FirstNameResults nameResults={this.state.results} mainState={this.state}/>
 					}
