@@ -15,42 +15,62 @@ var Query = React.createClass({
 			resultsObject: {},
 			showResultsComponent: false,
 			showNameBuilder: false,
-			//gender: [],
-			//type: [],
-			//culture: []
+			gender: [],
+			type: [],
+			culture: []
 		};
 	},
 
 	handleChange: function(event) {
-		var newState = {};
+		var checked = event.target.checked;
+		var targetArray = event.target.dataset.group;
+		var targetValue = event.target.dataset.id;
+		var targetID = event.target.id;
+		var stateArray = this.state[targetArray];
+		var stateID = this.state[targetID];
+		var index = stateArray.indexOf(targetValue);
+		console.log("Event.target ", event.target);
 
-		if (event.target.checked == false) {
-			newState[event.target.id] = false;
+		var newState = {};
+		if (checked == true) {
+			newState[event.target.id] = true;
+			stateArray.push(targetValue);
+			// console.log("Target Val: ", targetValue);
+			newState[targetArray] = stateArray;
 		}
 		else {
-			newState[event.target.id] = true;
+			newState[event.target.id] = false;
+			stateArray.splice(index, 1);
+			// console.log("Target Val: ", targetValue);
+			newState[targetArray] = stateArray;
 		}
     this.setState(newState);
 		console.log("change handled");
+		// debugger;;
 	},
 
 	handleSubmit: function(event) {
 		var shuffledArray = [];
 		var resultArray = [];
 
-		// this.props.setParameters(this.state);
-		console.log("Query State: ", this.state);
+		// console.log("Query State: ", this.state);
 		helpers.runQuery(this.state).then(function(data) {
     	for (var i = 0; i < data.length; i++) {
-    		if (data[i].nameType === "First Name") {
-    			resultArray.push(data[i].entry);
-					console.log("resultArray[i]= ", resultArray[i]);
-    		}
-    		else {console.log(data[i].entry + " is not a first name");}
+    		var nameTypeChosen = this.state.type.includes(data[i].nameType);
+    		var genderChosen = this.state.gender.includes(data[i].gender);
+    		var cultureChosen = this.state.culture.includes(data[i].origin);
+    		if (nameTypeChosen && genderChosen && cultureChosen) {
+    				resultArray.push(data[i]);
+						// console.log("resultArray[i]= ", resultArray[i]);
+    		} else {
+    			console.log(data[i].entry + " does not meet the search parameters.");
+    		};
+    		// debugger;;
+
 			}
 			var shuffledArray = this.shuffleResults(resultArray);
 
-			console.log(shuffledArray);
+			console.log("Shuffled Results: ", shuffledArray);
 			console.log("Query Data: ", data);
 			console.log("Results State: ", this.state);
 
@@ -62,10 +82,11 @@ var Query = React.createClass({
 				resultsObject: data
 			});
 			this.props.setParameters(this.state);
-  		console.log("State after query: ", this.state);
+  		// console.log("State after query: ", this.state);
     }.bind(this));	
     event.preventDefault();
 	},
+
 	shuffleResults: function(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 	  while (0 !== currentIndex) {
@@ -95,6 +116,8 @@ var Query = React.createClass({
 								      	id="maleSelect"
 								      	value={this.state.maleSelect}
 								      	onChange={this.handleChange}
+								      	data-group="gender"
+								      	data-id="Male"
 								      />
 								      Male
 								    </label>
@@ -107,6 +130,8 @@ var Query = React.createClass({
 								      	id="femaleSelect" 
 								      	value={this.state.femaleSelect}
 								      	onChange={this.handleChange} 
+								      	data-group="gender"
+								      	data-id="Female"
 								      />
 								      Female
 								    </label>
@@ -123,6 +148,8 @@ var Query = React.createClass({
 								      	id="firstNameSelect"
 								      	value={this.state.firstNameSelect}
 								      	onChange={this.handleChange} 
+								      	data-group="type"
+								      	data-id="First Name"
 								      />
 								      First Name
 								    </label>
@@ -135,6 +162,8 @@ var Query = React.createClass({
 								      	id="lastNameSelect"
 								      	value={this.state.lastNameSelect}
 								      	onChange={this.handleChange} 
+								      	data-group="type"
+								      	data-id="Last Name"
 								      />
 								      Last Name
 								    </label>
@@ -152,6 +181,7 @@ var Query = React.createClass({
 								      	value={this.state.norseSelect}
 								      	onChange={this.handleChange} 
 								      	data-group="culture"
+								      	data-id="Norse"
 								      />
 								      Norse
 								    </label>
@@ -165,6 +195,7 @@ var Query = React.createClass({
 								      	value={this.state.turkishSelect}
 								      	onChange={this.handleChange}
 								      	data-group="culture"
+								      	data-id="Turkish"
 								      />
 								      Turkish
 								    </label>
