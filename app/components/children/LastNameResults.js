@@ -29,11 +29,46 @@ var LastNameResults = React.createClass({
 						  <div className="panel-heading">Last Names</div>
 						  <div className="panel-body">
 						    <ul className="list-group">
-							    <li className="list-group-item">{this.props.nameResults[0]}</li>
-							    <li className="list-group-item">{this.props.nameResults[1]}</li>
-							    <li className="list-group-item">{this.props.nameResults[2]}</li>
-							    <li className="list-group-item">{this.props.nameResults[3]}</li>
-							    <li className="list-group-item">{this.props.nameResults[4]}</li>
+							    <li className="list-group-item">
+							    	<div className="row">
+								    	<span className="col-md-2">{this.props.nameResults[0]}</span>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-plus"></span></button>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-upload"></span></button>
+								    	<button id="fn-save-1" className="btn btn-primary result-btn"><span className="glyphicon glyphicon-lock"></span></button>
+								    </div>
+							    </li>
+							    <li className="list-group-item">
+							    	<div className="row">
+								    	<span className="col-md-2">{this.state.resultsObject[1].entry}</span>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-plus"></span></button>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-upload"></span></button>
+								    	<button id="fn-save-1" className="btn btn-primary result-btn"><span className="glyphicon glyphicon-lock"></span></button>
+								    </div>
+							    </li>
+							    <li className="list-group-item">
+							    	<div className="row">
+								    	<span className="col-md-2">{this.state.resultsObject[2].entry}</span>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-plus"></span></button>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-upload"></span></button>
+								    	<button id="fn-save-1" className="btn btn-primary result-btn"><span className="glyphicon glyphicon-lock"></span></button>
+								    </div>
+							    </li>
+							    <li className="list-group-item">
+							    	<div className="row">
+								    	<span className="col-md-2">{this.state.resultsObject[3].entry}</span>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-plus"></span></button>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-upload"></span></button>
+								    	<button id="fn-save-1" className="btn btn-primary result-btn"><span className="glyphicon glyphicon-lock"></span></button>
+								    </div>
+							    </li>
+							    <li className="list-group-item">
+							    	<div className="row">
+								    	<span className="col-md-2">{this.state.resultsObject[4].entry}</span>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-plus"></span></button>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-upload"></span></button>
+								    	<button className="btn btn-primary result-btn"><span className="glyphicon glyphicon-lock"></span></button>
+								    </div>
+							    </li>
 							  </ul>
 						  </div>
 						</div>

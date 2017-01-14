@@ -56,11 +56,18 @@
     border-color: #2c3642;
 }
 
-#nb-save-1, #nb-save-2 {
+#nb-save {
     float: right;
     margin-right: 5px;
 }
 
-#nb-discard-1, #nb-discard-2 {
+#nb-discard {
     float: right;
+    margin-right: 20px;
+}
+
+.result-btn {
+    float: right;
+    margin-right: 5px;
+    padding: 6px;
 }
