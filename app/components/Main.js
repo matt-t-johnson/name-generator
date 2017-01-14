@@ -33,6 +33,7 @@ var Main = React.createClass({
 	// If the component changes (i.e. if a search is entered)...
   componentDidUpdate: function() {
   },
+  //Can move this to Query.js
   shuffleResults: function(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 	  while (0 !== currentIndex) {

@@ -12,8 +12,12 @@ var Query = React.createClass({
 			norseSelect: false,
 			turkishSelect: false,
 			results: [],
+			resultsObject: {},
 			showResultsComponent: false,
-			showNameBuilder: false
+			showNameBuilder: false,
+			//gender: [],
+			//type: [],
+			//culture: []
 		};
 	},
 
@@ -34,7 +38,7 @@ var Query = React.createClass({
 		var shuffledArray = [];
 		var resultArray = [];
 
-		this.props.setParameters(this.state);
+		// this.props.setParameters(this.state);
 		console.log("Query State: ", this.state);
 		helpers.runQuery(this.state).then(function(data) {
     	for (var i = 0; i < data.length; i++) {
@@ -47,16 +51,17 @@ var Query = React.createClass({
 			var shuffledArray = this.props.shuffleResults(resultArray);
 
 			console.log(shuffledArray);
-			console.log("Data: ", data);
+			console.log("Query Data: ", data);
 			console.log("Results State: ", this.state);
 
 			this.setState({
 				results: shuffledArray,
 				showFirstNames: this.state.firstNameSelect,
 				showLastNames: this.state.lastNameSelect,
-				showNameBuilder: true
+				showNameBuilder: true,
+				resultsObject: data
 			});
-
+			this.props.setParameters(this.state);
   		console.log("State after query: ", this.state);
   		console.log(this.props);
     }.bind(this));	
@@ -136,6 +141,7 @@ var Query = React.createClass({
 								      	id="norseSelect" 
 								      	value={this.state.norseSelect}
 								      	onChange={this.handleChange} 
+								      	data-group="culture"
 								      />
 								      Norse
 								    </label>
@@ -148,6 +154,7 @@ var Query = React.createClass({
 								      	id="turkishSelect"  
 								      	value={this.state.turkishSelect}
 								      	onChange={this.handleChange}
+								      	data-group="culture"
 								      />
 								      Turkish
 								    </label>
