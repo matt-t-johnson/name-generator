@@ -50,8 +50,12 @@ var Query = React.createClass({
 	},
 
 	handleSubmit: function(event) {
-		var shuffledArray = [];
-		var resultArray = [];
+		// var shuffledArray = [];
+		// var resultArray = [];
+		var shuffledFirstNames = [];
+		var shuffledLastNames = [];
+		var firstNameResults = [];
+		var lastNameResults = [];
 
 		// console.log("Query State: ", this.state);
 		helpers.runQuery(this.state).then(function(data) {
@@ -59,23 +63,35 @@ var Query = React.createClass({
     		var nameTypeChosen = this.state.type.includes(data[i].nameType);
     		var genderChosen = this.state.gender.includes(data[i].gender);
     		var cultureChosen = this.state.culture.includes(data[i].origin);
+
     		if (nameTypeChosen && genderChosen && cultureChosen) {
-    				resultArray.push(data[i]);
-						// console.log("resultArray[i]= ", resultArray[i]);
-    		} else {
+    				// resultArray.push(data[i]);
+    				if (data[i].nameType === "First Name") {
+    					firstNameResults.push(data[i]);
+    				} 
+    				else if (data[i].nameType === "Last Name") {
+    					lastNameResults.push(data[i]);
+    				};
+
+    		} 
+    		else {
     			console.log(data[i].entry + " does not meet the search parameters.");
     		};
     		// debugger;;
 
 			}
-			var shuffledArray = this.shuffleResults(resultArray);
+			// var shuffledArray = this.shuffleResults(resultArray);
+			var shuffledFirstNames = this.shuffleResults(firstNameResults);
+			var shuffledLastNames = this.shuffleResults(lastNameResults);
 
-			console.log("Shuffled Results: ", shuffledArray);
-			console.log("Query Data: ", data);
-			console.log("Results State: ", this.state);
+			// console.log("Shuffled Results: ", shuffledArray);
+			// console.log("Query Data: ", data);
+			// console.log("Results State: ", this.state);
 
 			this.setState({
-				results: shuffledArray,
+				// results: shuffledArray,
+				firstNameResults: shuffledFirstNames,
+				lastNameResults: shuffledLastNames,
 				showFirstNames: this.state.firstNameSelect,
 				showLastNames: this.state.lastNameSelect,
 				showNameBuilder: true,

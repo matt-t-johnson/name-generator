@@ -26,7 +26,7 @@ var LastNameResults = React.createClass({
 		return (
 					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<div className="panel panel-primary">
-						  <div className="panel-heading">First Names</div>
+						  <div className="panel-heading">Last Names</div>
 						  <div className="panel-body">
 						    <ul className="list-group">
 							    {this.props.nameResults[0] &&

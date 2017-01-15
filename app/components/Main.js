@@ -18,6 +18,8 @@ var Main = React.createClass({
 			norseSelect: false,
 			turkishSelect: false,
 			results: [],
+			firstNameResults: [],
+			lastNameResults: [],
 			showFirstNames: false,
 			showLastNames: false,
 			showNameBuilder: false
@@ -43,10 +45,10 @@ var Main = React.createClass({
 					/>
 					<NameBuilder/>
 					{this.state.showFirstNames && 
-						<FirstNameResults nameResults={this.state.results} mainState={this.state}/>
+						<FirstNameResults nameResults={this.state.firstNameResults} mainState={this.state}/>
 					}
 					{this.state.showLastNames && 
-						<LastNameResults nameResults={this.state.results} mainState={this.state}/>
+						<LastNameResults nameResults={this.state.lastNameResults} mainState={this.state}/>
 					}
 				</div>
 			</div>
