@@ -17,7 +17,6 @@ var Main = React.createClass({
 			lastNameSelect: false,
 			norseSelect: false,
 			turkishSelect: false,
-			results: [],
 			firstNameResults: [],
 			lastNameResults: [],
 			showFirstNames: false,

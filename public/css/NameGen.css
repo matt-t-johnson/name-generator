@@ -50,6 +50,10 @@
     border-color: #8d8f9f;
 }
 
+.collapsibleResult {
+    margin-top: 10px;
+}
+
 #genButton {
     color: #eeeeee;
     background-color: #2c3642;
@@ -70,4 +74,12 @@
     float: right;
     margin-right: 5px;
     padding: 6px;
+}
+
+.table>thead>tr>th {
+    padding: 0px;
+}
+
+.table {
+    margin-bottom: 0px;
 }

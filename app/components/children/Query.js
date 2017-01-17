@@ -11,8 +11,6 @@ var Query = React.createClass({
 			lastNameSelect: false,
 			norseSelect: false,
 			turkishSelect: false,
-			results: [],
-			resultsObject: {},
 			showResultsComponent: false,
 			showNameBuilder: false,
 			gender: [],
@@ -50,8 +48,6 @@ var Query = React.createClass({
 	},
 
 	handleSubmit: function(event) {
-		// var shuffledArray = [];
-		// var resultArray = [];
 		var shuffledFirstNames = [];
 		var shuffledLastNames = [];
 		var firstNameResults = [];
@@ -65,14 +61,12 @@ var Query = React.createClass({
     		var cultureChosen = this.state.culture.includes(data[i].origin);
 
     		if (nameTypeChosen && genderChosen && cultureChosen) {
-    				// resultArray.push(data[i]);
     				if (data[i].nameType === "First Name") {
     					firstNameResults.push(data[i]);
     				} 
     				else if (data[i].nameType === "Last Name") {
     					lastNameResults.push(data[i]);
     				};
-
     		} 
     		else {
     			console.log(data[i].entry + " does not meet the search parameters.");
@@ -80,16 +74,13 @@ var Query = React.createClass({
     		// debugger;;
 
 			}
-			// var shuffledArray = this.shuffleResults(resultArray);
 			var shuffledFirstNames = this.shuffleResults(firstNameResults);
 			var shuffledLastNames = this.shuffleResults(lastNameResults);
 
-			// console.log("Shuffled Results: ", shuffledArray);
 			// console.log("Query Data: ", data);
 			// console.log("Results State: ", this.state);
 
 			this.setState({
-				// results: shuffledArray,
 				firstNameResults: shuffledFirstNames,
 				lastNameResults: shuffledLastNames,
 				showFirstNames: this.state.firstNameSelect,
