@@ -8,6 +8,9 @@ var FirstNameResults = require('./children/FirstNameResults');
 var LastNameResults = require('./children/LastNameResults');
 var NameBuilder = require('./children/NameBuilder');
 
+//GRANDCHILD COMPONENTS
+var ResultLineItem = require('./children/grandchildren/ResultLineItem');
+
 var Main = React.createClass({
 	getInitialState: function() {
 		return {
