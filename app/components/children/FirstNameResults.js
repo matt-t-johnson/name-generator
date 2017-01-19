@@ -8,24 +8,37 @@ var FirstNameResults = React.createClass({
 		return this.props.mainState;
 	},
 	componentWillMount: function() {
-		console.log("componentWillMount: Results");
+		// console.log("componentWillMount: Results");
 		// this.setState(this.props.mainState);
 	},
 	shouldComponentUpdate: function() {
-		console.log("shouldComponentUpdate: Results");
+		// console.log("shouldComponentUpdate: Results");
 		return true;
 	},
 	componentWillUpdate: function() {
-		console.log("componentWillUpdate: Results");
+		// console.log("componentWillUpdate: Results");
 	},
 	moveToNameBuilder: function(event) {
-		// console.log(event);
-		// console.log(event.target.id);
-		// var nameID = event.target.id;
+		console.log("Target: ", event.target);
+		console.log("Target id ", event.target.id, "target val: ", event.target.value);
+		var nameID = event.target.id;
+		var targetName = event.target.value;
 		// document.getElementById('nb-choice-1').appendChild(document.getElementById(nameID));
-		// // var fragment = document.createDocumentFragment();
-		// // fragment.appendChild(document.getElementById(nameID));
-		// // document.getElementById('nb-choice-1').appendChild(fragment);
+		// var fragment = document.createDocumentFragment();
+		// fragment.appendChild(document.getElementById(nameID));
+		// document.getElementById('nb-choice-1').appendChild(fragment);
+
+		// var newState = {};
+		// newState["nb1Selected"] = true;
+		// this.setState(newState);
+
+		this.setState({
+				nb1Selected: true,
+				nb1Name: targetName,
+			});
+		console.log("State 1: ", this.state);
+		this.props.setParameters(this.state);
+		console.log("State 2: ", this.state);
 	},
 	render: function() {
 		return (
@@ -39,7 +52,7 @@ var FirstNameResults = React.createClass({
 								    	<div className="row">
 									    	<span id="fn-name-1" className="col-md-2">{this.props.nameResults[0].entry}</span>
 									    	<button className="btn btn-primary result-btn" type="button" data-toggle="collapse" data-target="#fn-Result-1" aria-expanded="false" aria-controls="fn-Result-1"><span className="glyphicon glyphicon-plus"></span></button>
-									    	<button className="btn btn-primary result-btn" onClick={this.moveToNameBuilder}><span className="glyphicon glyphicon-upload"></span></button>
+									    	<button id="moveToNB-1" className="btn btn-primary result-btn" onClick={this.moveToNameBuilder}><span className="glyphicon glyphicon-upload" id="fn-Result-1" value={this.props.nameResults[0].entry}></span></button>
 									    </div>
 									    <div className="collapse" id="fn-Result-1">
 									    	<div className="well collapsibleResult">

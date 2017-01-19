@@ -27,7 +27,7 @@ var Query = React.createClass({
 		var stateArray = this.state[targetArray];
 		var stateID = this.state[targetID];
 		var index = stateArray.indexOf(targetValue);
-		console.log("Event.target ", event.target);
+		// console.log("Event.target ", event.target);
 
 		var newState = {};
 		if (checked == true) {
@@ -69,7 +69,7 @@ var Query = React.createClass({
     				};
     		} 
     		else {
-    			console.log(data[i].entry + " does not meet the search parameters.");
+    			// console.log(data[i].entry + " does not meet the search parameters.");
     		};
     		// debugger;;
 
@@ -119,7 +119,7 @@ var Query = React.createClass({
 								    <label htmlFor="checkboxes-0">
 								      <input 
 								      	type="checkbox" 
-								      	name="checkboxes" 
+								      	name="checkboxes"
 								      	id="maleSelect"
 								      	value={this.state.maleSelect}
 								      	onChange={this.handleChange}
