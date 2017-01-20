@@ -27,23 +27,19 @@ var Query = React.createClass({
 		var stateArray = this.state[targetArray];
 		var stateID = this.state[targetID];
 		var index = stateArray.indexOf(targetValue);
-		// console.log("Event.target ", event.target);
 
 		var newState = {};
 		if (checked == true) {
 			newState[event.target.id] = true;
 			stateArray.push(targetValue);
-			// console.log("Target Val: ", targetValue);
 			newState[targetArray] = stateArray;
 		}
 		else {
 			newState[event.target.id] = false;
 			stateArray.splice(index, 1);
-			// console.log("Target Val: ", targetValue);
 			newState[targetArray] = stateArray;
 		}
     this.setState(newState);
-		console.log("change handled");
 		// debugger;;
 	},
 

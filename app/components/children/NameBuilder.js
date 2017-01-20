@@ -3,8 +3,8 @@ var React = require('react');
 var NameBuilder = React.createClass({
 	getInitialState: function() {
 		return {
-			nb1Selected: false,
-			nb2Selected: false, 
+			nb1Name: "Select a first name",
+			nb2Name: "Select a last name"
 		};
 	},
 	shouldComponentUpdate: function() {
@@ -19,20 +19,10 @@ var NameBuilder = React.createClass({
 						  <div className="panel-body">
 						  	<div className="row">
 						  		<div id="nb-choice-1" className="col-md-4 col-md-offset-1 well well-sm">
-						  			{!this.state.nb1Selected &&
-						  				<span>Placeholder</span>
-						  			}
-						  			{this.state.nb1Selected &&
-						  				<span>{this.props.nb1Name}</span>
-						  			}
+						  				<span id="nb1">{this.props.nb1Name}</span>
 						  		</div>
 						  		<div id="nb-choice-2" className="col-md-4 col-md-offset-1 well well-sm">
-						  			{!this.state.nb2Selected &&
-						  				<span>Placeholder</span>
-						  			}
-						  			{this.state.nb2Selected &&
-						  				<span>{this.props.nb2Name}</span>
-						  			}
+						  				<span id="nb2">{this.props.nb2Name}</span>
 						  		</div>
 						  		<div>
 						  			<button id="nb-discard" className="btn btn-danger">Discard</button>

@@ -1,70 +1,50 @@
 var React = require('react');
 
 var ResultLineItem = React.createClass({
-	getInitialState: function() {
-		return null;
-	},
-	componentWillMount: function() {
-		// console.log("componentWillMount: Results");
-		// this.setState(this.props.mainState);
-	},
 	shouldComponentUpdate: function() {
 		// console.log("shouldComponentUpdate: Results");
 		return true;
 	},
-	componentWillUpdate: function() {
-		// console.log("componentWillUpdate: Results");
+	buttonClick: function() {
+		this.props.moveToNameBuilder(this.props.index);
 	},
 	render: function() {
+			var idName = `${this.props.nameType}-name-${this.props.index+1}`;
+			var dataTarget = `#${this.props.nameType}-Result-${this.props.index+1}`;
+			var xnResult = `${this.props.nameType}-Result-${this.props.index+1}`;
+			console.log(idName, dataTarget, xnResult);
 			return (
 				<div>
-					{(function() {
-							for (var i=0; i<5; i++) {
-								return 
-									<div>
-										<li className="list-group-item">
-								    	<div className="row">
-									    	<span id="fn-name-1" className="col-md-2">{this.props.nameResults[0].entry}</span>
-									    	<button className="btn btn-primary result-btn" type="button" data-toggle="collapse" data-target="#fn-Result-1" aria-expanded="false" aria-controls="fn-Result-1"><span className="glyphicon glyphicon-plus"></span></button>
-									    	<button className="btn btn-primary result-btn" onClick={this.moveToNameBuilder}><span className="glyphicon glyphicon-upload"></span></button>
-									    	<button id="fn-save-1" className="btn btn-primary result-btn"><span className="glyphicon glyphicon-lock"></span></button>
-									    </div>
-									    <div className="collapse" id="fn-Result-1">
-									    	<div className="well collapsibleResult">
-									    		<table className="table table-sm table-responsive">
-									    			<thead className="thead-default">
-										    			<tr>
-											    			<th>Gender</th>
-											    			<th>Origin</th>
-											    			<th>Meaning</th>
-											    		</tr>
-											    	</thead>
-											    	<tbody>
-											    		<tr>
-											    			<td>{this.props.nameResults[0].gender}</td>
-											    			<td>{this.props.nameResults[0].origin}</td>
-											    			<td>{this.props.nameResults[0].meaning}</td>
-											    		</tr>
-											    	</tbody>
-									    		</table>
-									    	</div>
-									    </div>
-								    </li>
-							    </div>
-							  ;
-							}  
-					})};  
-				</div>
-			);
-
-	},
-	componentDidMount: function() {
-		console.log("componentDidMount: Results");
-
-	},
-	componentDidUpdate: function(prevProps, prevState) {
-		console.log("componentDidUpdate: Results");
-	},
+					<li className="list-group-item">
+			    	<div className="row">
+				    	<span id={idName} className="col-md-2">{this.props.nameResult.entry}</span>
+				    	<button className="btn btn-primary result-btn" type="button" data-toggle="collapse" data-target={dataTarget} aria-expanded="false" aria-controls={xnResult}><span className="glyphicon glyphicon-plus"></span></button>
+				    	<button id="moveToNB" className="btn btn-primary result-btn" onClick={this.buttonClick}><span className="glyphicon glyphicon-upload"></span></button>
+				    </div>
+				    <div className="collapse" id={xnResult}>
+				    	<div className="well collapsibleResult">
+				    		<table className="table table-sm table-responsive">
+				    			<thead className="thead-default">
+					    			<tr>
+						    			<th>Gender</th>
+						    			<th>Origin</th>
+						    			<th>Meaning</th>
+						    		</tr>
+						    	</thead>
+						    	<tbody>
+						    		<tr>
+						    			<td>{this.props.nameResult.gender}</td>
+						    			<td>{this.props.nameResult.origin}</td>
+						    			<td>{this.props.nameResult.meaning}</td>
+						    		</tr>
+						    	</tbody>
+				    		</table>
+				    	</div>
+				    </div>
+			    </li>
+		    </div>
+		);
+	}
 });
 
 module.exports = ResultLineItem;

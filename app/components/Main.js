@@ -9,7 +9,7 @@ var LastNameResults = require('./children/LastNameResults');
 var NameBuilder = require('./children/NameBuilder');
 
 //GRANDCHILD COMPONENTS
-var ResultLineItem = require('./children/grandchildren/ResultLineItem');
+//var ResultLineItem = require('./children/grandchildren/ResultLineItem');
 
 var Main = React.createClass({
 	getInitialState: function() {
@@ -25,8 +25,8 @@ var Main = React.createClass({
 			showFirstNames: false,
 			showLastNames: false,
 			showNameBuilder: false,
-			nb1Name: "",
-			nb2Name: ""
+			nb1Name: "Select a first name",
+			nb2Name: "Select a last name",
 		};
 	},
 	setParameters: function(params) {
