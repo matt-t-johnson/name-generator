@@ -10,8 +10,19 @@ var NameBuilder = React.createClass({
 	shouldComponentUpdate: function() {
 		return true;
 	},
+	saveName: function() {
+		var character = {
+			firstName: "test",
+			lastName: "test"
+		};
+	},
+	discardName: function() {
+		this.props.setParameters({
+			nb1Name: "Select a first name",
+			nb2Name: "Select a last name"
+		})
+	},
 	render: function() {
-		console.log("Name builder state: ", this.state);
 		return (
 					<div className="col-md-12">
 						<div className="panel panel-primary">
@@ -25,8 +36,8 @@ var NameBuilder = React.createClass({
 						  				<span id="nb2">{this.props.nb2Name}</span>
 						  		</div>
 						  		<div>
-						  			<button id="nb-discard" className="btn btn-danger">Discard</button>
-						  			<button id="nb-save" className="btn btn-primary">Save</button>
+						  			<button id="nb-discard" className="btn btn-danger" onClick={this.discardName}>Discard</button>
+						  			<button id="nb-save" className="btn btn-primary" onClick={this.saveName}>Save</button>
 						  		</div>
 								</div>
 						  </div>
