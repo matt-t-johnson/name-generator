@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var Promise = require("bluebird");
 mongoose.Promise = Promise;
 
+var Character = require("../models/Characters");
 
 //ROUTES
 router.get('/', function (req, res) {
@@ -25,6 +26,19 @@ router.get('/search', function(req, res) {
 
 router.get('/home', function(req, res) {
 	res.render('home');
+});
+
+router.post('/create', function(req, res) {
+	var charName = new Character(req.body);
+	console.log("req.body: ", req.body)
+	charName.save(function(error, doc) {
+		if (error) {
+			res.send(error);
+		}
+		else {
+			res.send(doc); 
+		}
+	});
 });
 
 module.exports = router;

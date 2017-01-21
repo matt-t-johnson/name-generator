@@ -1,4 +1,5 @@
 var React = require('react');
+var helpers = require("../utils/helpers");
 
 var NameBuilder = React.createClass({
 	getInitialState: function() {
@@ -11,10 +12,15 @@ var NameBuilder = React.createClass({
 		return true;
 	},
 	saveName: function() {
-		var character = {
-			firstName: "test",
-			lastName: "test"
-		};
+		var name1 = this.props.nb1Name;
+		var name2 = this.props.nb2Name;
+
+		if (name1 === "Select a first name" && name2 === "Select a last name") {
+			alert("Please select at least one name.");
+		}
+		else {
+			helpers.saveName(name1, name2);
+		}
 	},
 	discardName: function() {
 		this.props.setParameters({

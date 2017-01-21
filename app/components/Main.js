@@ -8,9 +8,6 @@ var FirstNameResults = require('./children/FirstNameResults');
 var LastNameResults = require('./children/LastNameResults');
 var NameBuilder = require('./children/NameBuilder');
 
-//GRANDCHILD COMPONENTS
-//var ResultLineItem = require('./children/grandchildren/ResultLineItem');
-
 var Main = React.createClass({
 	getInitialState: function() {
 		return {
@@ -33,7 +30,7 @@ var Main = React.createClass({
 		this.setState(params);
 	},
 	shouldComponentUpdate: function() {
-		console.log("shouldComponentUpdate: Main");
+		// console.log("shouldComponentUpdate: Main");
 		return true;
 	},
 	// If the component changes (i.e. if a search is entered)...

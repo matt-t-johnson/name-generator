@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session'); 
 var methodOverride = require('method-override');
 var models  = require('./models');
-// var sequelizeConnection = models.sequelize;
 var mongojs = require('mongojs');
 var mongoose = require('mongoose');
 
