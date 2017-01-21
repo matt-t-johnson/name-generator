@@ -24,6 +24,18 @@ router.get('/search', function(req, res) {
 	});
 });
 
+
+router.get('/characters', function(req, res) {
+	models.Characters.find({}).exec(function(err, doc) {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			res.send(doc);
+		}
+	});
+});
+
 router.get('/home', function(req, res) {
 	res.render('home');
 });

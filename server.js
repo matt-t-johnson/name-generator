@@ -50,8 +50,6 @@ var routes = require('./controllers/controller.js');
 app.use('/', routes);
 
 
-
-
 // listen on port 9001
 app.listen(PORT, function(){
 	console.log("Listening on PORT " + PORT )

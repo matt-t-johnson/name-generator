@@ -35,15 +35,15 @@ var NameBuilder = React.createClass({
 						  <div className="panel-heading">Character Builder</div>
 						  <div className="panel-body">
 						  	<div className="row">
-						  		<div id="nb-choice-1" className="col-md-4 col-md-offset-1 well well-sm">
+						  		<div id="nb-choice-1" className="well well-sm col-md-4 col-md-offset-1">
 						  				<span id="nb1">{this.props.nb1Name}</span>
 						  		</div>
-						  		<div id="nb-choice-2" className="col-md-4 col-md-offset-1 well well-sm">
+						  		<div id="nb-choice-2" className="well well-sm col-md-4 col-md-offset-1">
 						  				<span id="nb2">{this.props.nb2Name}</span>
 						  		</div>
 						  		<div>
 						  			<button id="nb-discard" className="btn btn-danger" onClick={this.discardName}>Discard</button>
-						  			<button id="nb-save" className="btn btn-primary" onClick={this.saveName}>Save</button>
+						  			<button id="nb-save" className="btn btn-primary col-" onClick={this.saveName}>Save</button>
 						  		</div>
 								</div>
 						  </div>

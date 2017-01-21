@@ -1,5 +1,6 @@
 'use strict'
 
 module.exports = {
-  Names: require('./Names')
+  Names: require('./Names'),
+  Characters: require('./Characters')
 }

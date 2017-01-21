@@ -12,7 +12,6 @@ var ResultLineItem = React.createClass({
 			var idName = `${this.props.nameType}-name-${this.props.index+1}`;
 			var dataTarget = `#${this.props.nameType}-Result-${this.props.index+1}`;
 			var xnResult = `${this.props.nameType}-Result-${this.props.index+1}`;
-			console.log(idName, dataTarget, xnResult);
 			return (
 				<div>
 					<li className="list-group-item">
