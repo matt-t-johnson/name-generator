@@ -21,6 +21,6 @@ var NameSchema = new Schema({
 	}
 });
 
-var Names = mongoose.model("Names", NameSchema);
+var names = mongoose.model("names", NameSchema);
 
-module.exports = Names;
+module.exports = names;

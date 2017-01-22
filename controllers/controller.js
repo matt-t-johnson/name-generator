@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/search', function(req, res) {
-	models.Names.find({}).exec(function(err, doc) {
+	models.names.find({}).exec(function(err, doc) {
 		if (err) {
 			console.log(err);
 		}
