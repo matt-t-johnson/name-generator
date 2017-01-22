@@ -1,8 +1,6 @@
-// Include the axios package for performing HTTP requests (promise based alternative to request)
+//Using axios for performing http requests
 var axios = require("axios");
 
-
-// Helper functions (in this case the only one is runQuery)
 var helpers = {
 
   runQuery: function(parameters) {
