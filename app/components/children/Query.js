@@ -40,7 +40,6 @@ var Query = React.createClass({
 			newState[targetArray] = stateArray;
 		}
     this.setState(newState);
-		// debugger;;
 	},
 
 	handleSubmit: function(event) {
@@ -49,32 +48,26 @@ var Query = React.createClass({
 		var firstNameResults = [];
 		var lastNameResults = [];
 
-		// console.log("Query State: ", this.state);
 		helpers.runQuery(this.state).then(function(data) {
     	for (var i = 0; i < data.length; i++) {
     		var nameTypeChosen = this.state.type.includes(data[i].nameType);
     		var genderChosen = this.state.gender.includes(data[i].gender);
     		var cultureChosen = this.state.culture.includes(data[i].origin);
 
-    		if (nameTypeChosen && genderChosen && cultureChosen) {
-    				if (data[i].nameType === "First Name") {
-    					firstNameResults.push(data[i]);
-    				} 
-    				else if (data[i].nameType === "Last Name") {
+    		if (data[i].nameType === "First Name") {
+    			if (nameTypeChosen && genderChosen && cultureChosen) {
+    				firstNameResults.push(data[i]);
+    			};
+    		} else if (data[i].nameType === "Last Name") {
+    				if (nameTypeChosen && cultureChosen) {
     					lastNameResults.push(data[i]);
+
     				};
-    		} 
-    		else {
-    			// console.log(data[i].entry + " does not meet the search parameters.");
-    		};
-    		// debugger;;
+    			};
 
 			}
 			var shuffledFirstNames = this.shuffleResults(firstNameResults);
 			var shuffledLastNames = this.shuffleResults(lastNameResults);
-
-			// console.log("Query Data: ", data);
-			// console.log("Results State: ", this.state);
 
 			this.setState({
 				firstNameResults: shuffledFirstNames,
@@ -85,7 +78,6 @@ var Query = React.createClass({
 				resultsObject: data
 			});
 			this.props.setParameters(this.state);
-  		// console.log("State after query: ", this.state);
     }.bind(this));	
     event.preventDefault();
 	},
@@ -104,7 +96,7 @@ var Query = React.createClass({
 	},
 	render: function() {
 		return (
-			<div id="QueryBody">
+			<div id="QueryBody" className="col-md-12">
 				<div className="panel panel-primary">
 						<div className="panel-heading">Name Parameters</div>
 						<div className="panel-body">
@@ -230,5 +222,5 @@ var Query = React.createClass({
 		);
 	}
 });
-// onClick={handleSubmit}
+
 module.exports = Query;

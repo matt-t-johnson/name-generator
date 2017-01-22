@@ -83,3 +83,9 @@ body {
 .table {
     margin-bottom: 0px;
 }
+
+.well {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}

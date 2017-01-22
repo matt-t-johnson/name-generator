@@ -44,7 +44,9 @@ var Main = React.createClass({
 					<Query 
 						setParameters={this.setParameters}
 					/>
+					{this.state.showNameBuilder &&
 					<NameBuilder nb1Name={this.state.nb1Name} nb2Name={this.state.nb2Name} setParameters={this.setParameters}/>
+					}
 					{this.state.showFirstNames && 
 						<FirstNameResults nameResults={this.state.firstNameResults} mainState={this.state} setParameters={this.setParameters}/>
 					}
