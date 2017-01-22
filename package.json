@@ -29,6 +29,7 @@
   "homepage": "https://github.com/matt-t-johnson/name-generator#readme",
   "dependencies": {
     "axios": "^0.15.3",
+    "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
@@ -48,6 +49,7 @@
     "webpack": "^1.14.0"
   },
   "engines": {
-    "node": "7.2.1"
+    "node": "7.2.1",
+    "npm": "3.10.9"
   }
 }
