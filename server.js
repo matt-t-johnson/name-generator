@@ -14,6 +14,7 @@ var mongoose = require('mongoose');
 //----------MONGOOSE CONNECTION------------
 //----------Local MongoDB URI--------------
 var databaseUri = "mongodb://localhost/names";
+
 //-----------------------------------------
 if (process.env.MONGODB_URI) {
 	mongoose.connect(process.env.MONGODB_URI);
