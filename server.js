@@ -1,4 +1,4 @@
-// Initialize Express app
+// ----------Initialize Express app--------
 var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 9001;
@@ -11,8 +11,16 @@ var models  = require('./models');
 var mongojs = require('mongojs');
 var mongoose = require('mongoose');
 
-//MONGOOSE CONNECTION
-mongoose.connect("mongodb://localhost/names");
+//----------MONGOOSE CONNECTION------------
+//----------Local MongoDB URI--------------
+var databaseUri = "mongodb://localhost/names";
+//-----------------------------------------
+if (process.env.MONGODB_URI) {
+	mongoose.connect(process.env.MONGODB_URI);
+} else {
+	mongoose.connect(databaseUri);
+}
+//----------END DATABASE CONFIG-----------
 var db = mongoose.connection;
 
 db.on('error', function(error) {
