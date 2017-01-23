@@ -36,10 +36,6 @@ router.get('/characters', function(req, res) {
 	});
 });
 
-router.get('/home', function(req, res) {
-	res.render('home');
-});
-
 router.post('/create', function(req, res) {
 	var charName = new Character(req.body);
 	console.log("req.body: ", req.body)

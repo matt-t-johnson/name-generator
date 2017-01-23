@@ -29,6 +29,12 @@ var helpers = {
     .catch(function (error) {
       console.log(error);
     });
+  },
+  getCharacters: function() {
+    var route = "/characters";
+    return axios.get(route).then(function(response) {
+      return response.data;
+    });
   }
 };
 

@@ -11,8 +11,6 @@ var Query = React.createClass({
 			lastNameSelect: false,
 			norseSelect: false,
 			turkishSelect: false,
-			showResultsComponent: false,
-			showNameBuilder: false,
 			gender: [],
 			type: [],
 			culture: []

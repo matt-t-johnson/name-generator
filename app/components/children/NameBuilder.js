@@ -30,7 +30,7 @@ var NameBuilder = React.createClass({
 	},
 	render: function() {
 		return (
-					<div className="col-md-12">
+					<div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div className="panel panel-primary">
 						  <div className="panel-heading">Character Builder</div>
 						  <div className="panel-body">

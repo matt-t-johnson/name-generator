@@ -7,6 +7,7 @@ var Query = require('./children/Query');
 var FirstNameResults = require('./children/FirstNameResults');
 var LastNameResults = require('./children/LastNameResults');
 var NameBuilder = require('./children/NameBuilder');
+var SavedCharacters = require('./children/SavedCharacters');
 
 var Main = React.createClass({
 	getInitialState: function() {
@@ -22,8 +23,10 @@ var Main = React.createClass({
 			showFirstNames: false,
 			showLastNames: false,
 			showNameBuilder: false,
+			showSavedCharacters: false,
 			nb1Name: "Select a first name",
 			nb2Name: "Select a last name",
+			characterList: [],
 		};
 	},
 	setParameters: function(params) {
@@ -57,7 +60,7 @@ var Main = React.createClass({
 		var lnColWidth = this.getLnColWidth();
 		return (
 			<div>
-				<Header />
+				<Header setParameters={this.setParameters}/>
 				<div className="container">
 					<Query 
 						setParameters={this.setParameters}
@@ -70,6 +73,10 @@ var Main = React.createClass({
 					}
 					{this.state.showNameBuilder &&
 						<NameBuilder nb1Name={this.state.nb1Name} nb2Name={this.state.nb2Name} setParameters={this.setParameters}/>
+					}
+					{
+						this.state.showSavedCharacters &&
+						<SavedCharacters characterList={this.state.characterList}/>
 					}
 				</div>
 			</div>
