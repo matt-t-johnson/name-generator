@@ -17,8 +17,8 @@ var ResultLineItem = React.createClass({
 					<li className="list-group-item">
 			    	<div className="row">
 				    	<span id={idName} className="col-md-2">{this.props.nameResult.entry}</span>
-				    	<button className="btn btn-primary result-btn" type="button" data-toggle="collapse" data-target={dataTarget} aria-expanded="false" aria-controls={xnResult}><span className="glyphicon glyphicon-plus"></span></button>
-				    	<button id="moveToNB" className="btn btn-primary result-btn" onClick={this.buttonClick}><span className="glyphicon glyphicon-upload"></span></button>
+				    	<button className="btn btn-primary result-btn" type="button" data-toggle="collapse" data-target={dataTarget} aria-expanded="false" aria-controls={xnResult}><span className="glyphicon glyphicon-zoom-in"></span></button>
+				    	<button id="moveToNB" className="btn btn-primary result-btn" onClick={this.buttonClick}><span className="glyphicon glyphicon-save"></span></button>
 				    </div>
 				    <div className="collapse" id={xnResult}>
 				    	<div className="well collapsibleResult">

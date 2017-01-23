@@ -18,19 +18,20 @@ var FirstNameResults = React.createClass({
 	},
 	render: function() {
 		var lineItems = [];
+
 		for (var i=0; i < 5; i++) {
 		    lineItems.push(<ResultLineItem key={i} index={i} nameType="fn" nameResult={this.props.nameResults[i]} moveToNameBuilder={this.moveToNameBuilder}/>);
 		}
 		return (
-					<div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<div className="panel panel-primary">
-						  <div className="panel-heading">First Names</div>
-						  <div className="panel-body">
-						    <ul className="list-group">
-								  <div>{lineItems}</div>
-							  </ul>
-						  </div>
-						</div>
+					<div className={this.props.width}>
+							<div className="panel panel-primary">
+								  <div className="panel-heading">First Names</div>
+								  <div className="panel-body">
+								    <ul className="list-group">
+										  <div>{lineItems}</div>
+									  </ul>
+								  </div>
+							</div>
 					</div>
 		);
 	}
