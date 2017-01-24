@@ -5,11 +5,11 @@ var helpers = {
 
   runQuery: function(parameters) {
     var route = "/search";
-    var requestConfig = {
-      params: parameters
-    }
+    // var requestConfig = {
+    //   params: parameters
+    // }
 
-    return axios.get(route, requestConfig).then(function(response) {
+    return axios.get(route).then(function(response) {
       return response.data;
     });
   },
