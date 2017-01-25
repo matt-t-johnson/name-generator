@@ -5,10 +5,9 @@ var helpers = {
 
   runQuery: function(parameters) {
     var route = "/search";
-    var requestConfig = {
-      params: parameters
-    }
-    return axios.post(route, requestConfig).then(function(response) {
+    
+    console.log(parameters);
+    return axios.post(route, parameters).then(function(response) {
       return response.data;
     });
   },

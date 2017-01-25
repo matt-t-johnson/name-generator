@@ -34,7 +34,7 @@ var Main = React.createClass({
 	},
 	getFnColWidth: function() {
 		if (this.state.lastNameSelect == true) {
-			return "col-xs-6 col-sm-6 col-md-6 col-lg-6";
+			return "col-xs-12 col-sm-6 col-md-6 col-lg-6";
 		};
 		if (this.state.lastNameSelect == false) {
 			return "col-xs-12 col-sm-12 col-md-12 col-lg-12";
@@ -42,7 +42,7 @@ var Main = React.createClass({
 	},
 	getLnColWidth: function() {
 		if (this.state.firstNameSelect == true) {
-			return "col-xs-6 col-sm-6 col-md-6 col-lg-6";
+			return "col-xs-12 col-sm-6 col-md-6 col-lg-6";
 		};
 		if (this.state.firstNameSelect == false) {
 			return "col-xs-12 col-sm-12 col-md-12 col-lg-12";
@@ -73,10 +73,6 @@ var Main = React.createClass({
 					}
 					{this.state.showNameBuilder &&
 						<NameBuilder nb1Name={this.state.nb1Name} nb2Name={this.state.nb2Name} setParameters={this.setParameters}/>
-					}
-					{
-						this.state.showSavedCharacters &&
-						<SavedCharacters characterList={this.state.characterList}/>
 					}
 				</div>
 			</div>

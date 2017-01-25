@@ -14,6 +14,13 @@ router.get('/', function (req, res) {
 });
 
 router.post('/search', function(req, res) {
+	// var gender = req.body.gender;
+	// var culture = req.body.culture;
+	// var nameType = req.body.type;
+	
+	// console.log("request: ", req);
+	// console.log("gender: ", gender, "culture ", culture, "nameType ", nameType);
+
 	models.names.find({}).exec(function(err, doc) {
 		if (err) {
 			console.log(err);
