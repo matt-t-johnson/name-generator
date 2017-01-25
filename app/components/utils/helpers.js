@@ -8,8 +8,7 @@ var helpers = {
     var requestConfig = {
       params: parameters
     }
-
-    return axios.get(route, requestConfig).then(function(response) {
+    return axios.post(route, requestConfig).then(function(response) {
       return response.data;
     });
   },
