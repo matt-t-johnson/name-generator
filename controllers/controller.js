@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
     res.sendFile(__dirname + "../public/index.html");
 });
 
-router.get('/search', function(req, res) {
+router.post('/search', function(req, res) {
 	models.names.find({}).exec(function(err, doc) {
 		if (err) {
 			console.log(err);
